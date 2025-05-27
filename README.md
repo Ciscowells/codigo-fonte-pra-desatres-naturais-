@@ -1,4 +1,4 @@
-# codigo-fonte-pra-desatres-naturais-
+Projeto Global Solution
 O que o programa faz ?
 O programa simula o cadastro de 2 desastres com dados fixos (baseado no seu exemplo) e exibe:
 
