@@ -1,0 +1,75 @@
+# Simulação da entrada fixa com base no exemplo fornecido
+quantidade = 2
+
+# Listas com os dados dos 2 desastres
+tipos = ["enchente", "tempestade"]
+paises = ["Brasil", "Brasil"]
+cidades = ["Porto Alegre", "Canoas"]
+bairros = ["Centro", "São José"]
+ruas = ["Av. Borges de Medeiros", "Rua das Palmeiras"]
+total_afetados = [20, 15]
+criancas = [5, 2]
+adultos = [8, 6]
+idosos = [3, 4]
+mobilidade_reduzida = [2, 1]
+feridos = [2, 2]
+
+# Cálculo dos totais por categoria
+soma_criancas = 0
+soma_adultos = 0
+soma_idosos = 0
+soma_mob_reduzida = 0
+soma_feridos = 0
+soma_total_afetados = 0
+
+for i in range(quantidade):
+    soma_criancas += criancas[i]
+    soma_adultos += adultos[i]
+    soma_idosos += idosos[i]
+    soma_mob_reduzida += mobilidade_reduzida[i]
+    soma_feridos += feridos[i]
+    soma_total_afetados += total_afetados[i]
+
+# Encontrar a categoria mais afetada
+categoria_mais_afetada = ""
+maior_valor = soma_criancas
+categoria_mais_afetada = "Crianças"
+
+if soma_adultos > maior_valor:
+    maior_valor = soma_adultos
+    categoria_mais_afetada = "Adultos"
+
+if soma_idosos > maior_valor:
+    maior_valor = soma_idosos
+    categoria_mais_afetada = "Idosos"
+
+if soma_mob_reduzida > maior_valor:
+    maior_valor = soma_mob_reduzida
+    categoria_mais_afetada = "Mobilidade reduzida"
+
+if soma_feridos > maior_valor:
+    maior_valor = soma_feridos
+    categoria_mais_afetada = "Feridos"
+
+# Encontrar o desastre com maior número de afetados
+indice_maior = 0
+maior_afetados = total_afetados[0]
+
+for i in range(1, quantidade):
+    if total_afetados[i] > maior_afetados:
+        maior_afetados = total_afetados[i]
+        indice_maior = i
+
+# Saída dos resultados
+print(f"\nTotal de desastres registrados: {quantidade}\n")
+
+print("Resumo de pessoas afetadas por categoria:")
+print("Crianças:", soma_criancas, "| Adultos:", soma_adultos, "| Idosos:", soma_idosos,
+      "| Mobilidade reduzida:", soma_mob_reduzida, "| Feridos:", soma_feridos)
+
+print("\nCategoria mais afetada:", categoria_mais_afetada)
+print("Total geral de pessoas afetadas:", soma_total_afetados)
+
+print("\nDesastre com maior número de afetados:")
+print("Tipo:", tipos[indice_maior])
+print("Local:", ruas[indice_maior] + ", " + bairros[indice_maior] + ", " + cidades[indice_maior] + ", " + paises[indice_maior])
